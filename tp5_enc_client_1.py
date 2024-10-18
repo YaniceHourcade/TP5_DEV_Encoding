@@ -35,10 +35,11 @@ header = len(encoded_msg).to_bytes(4, byteorder='big')
 
 fin = '<fin>'.encode('utf-8')
 
-msg_envoi = header + encoded_msg + fin
+payload = header + encoded_msg + fin
 
+print(payload)
 # On envoie
-s.send(msg_envoi)
+s.send(payload)
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
