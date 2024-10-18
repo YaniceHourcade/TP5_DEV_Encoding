@@ -15,6 +15,8 @@ def verif_input(msg):
         print("Les nombres doivent être compris entre -1048575 et 1048575")
         exit()
         
+    return int(x), operator, int(y)
+        
 def convert_input(msg):
     x, operator, y = verif_input(msg)  # On vérifie et obtient x, operator, y
 
