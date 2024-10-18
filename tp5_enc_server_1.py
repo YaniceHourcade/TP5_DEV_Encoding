@@ -56,7 +56,7 @@ while True:
         print(f"Calcul reçu : {calc_expression}")
 
         # Evaluation et envoi du résultat
-        res  = eval(data)
+        res = eval(data)
         conn.send(str(res).encode())
          
     except socket.error:
