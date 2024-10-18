@@ -7,20 +7,12 @@ s.bind(('10.10.10.11', 13337))
 
 s.listen(1)
 print("En attente de connexion...")
-conn, addr = s.accept()
 client, addr = s.accept()
 
 END_MESSAGE = "<fin>"
 
 while True:
     try:
-        # On reçoit la string Hello du client
-        data = conn.recv(1024)
-        if not data: break
-        print(f"Données reçues du client : {data}")
-
-        conn.send("Hello".encode())
-        
         header = client.recv(4)
         if not header:
             break
