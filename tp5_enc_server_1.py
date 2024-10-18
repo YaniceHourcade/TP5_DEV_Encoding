@@ -20,6 +20,13 @@ conn, addr = s.accept()
 
 while True:
     try:
+        # On reçoit la string Hello du client
+        data = conn.recv(1024)
+        if not data: break
+        print(f"Données reçues du client : {data}")
+
+        conn.send("Hello".encode())
+        
         # Lecture de l'en-tête (taille du message)
         header = recv_all(conn, 4)
         if not header:
