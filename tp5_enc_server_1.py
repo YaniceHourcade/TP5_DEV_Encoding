@@ -7,13 +7,13 @@ s.bind(('10.10.10.11', 13337))
 
 s.listen(1)
 print("En attente de connexion...")
-client, addr = s.accept()
+conn, addr = s.accept()
 
 END_MESSAGE = "<fin>"
 
 while True:
     try:
-        header = client.recv(4)
+        header = conn.recv(4)
         if not header:
             break
         
@@ -25,7 +25,7 @@ while True:
 
         bytes_received = 0
         while bytes_received < msg_len:
-            chunk = client.recv(min(msg_len - bytes_received, 1024))
+            chunk = conn.recv(min(msg_len - bytes_received, 1024))
         if not chunk:
             raise RuntimeError('Invalid chunk received bro')
 
