@@ -27,8 +27,12 @@ msg = input("Calcul à envoyer: ")
 
 verif_input(msg)
 
+taille = len(msg)
+
+msg_envoi = f"{taille:04d}{msg}<clafin>"
+
 # On envoie
-s.send(msg.encode())
+s.send(msg_envoi.encode())
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
