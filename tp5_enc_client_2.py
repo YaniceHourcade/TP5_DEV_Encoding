@@ -45,9 +45,10 @@ msg = input("Calcul à envoyer: ")
 verif_input(msg)
 
 payload = convert_input(msg)
-
+print("calcule envoyer : " + payload)
 # On envoie
 s.send(payload)
+
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
