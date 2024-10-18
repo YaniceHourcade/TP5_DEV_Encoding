@@ -46,7 +46,7 @@ while True:
             print("Séquence de fin manquante ou incorrecte.")
             break
         
-        calc_expression = data[:-len('<clafin>')].decode().strip()
+        calc_expression = data[:-len('<fin>')].decode().strip()
         print(f"Calcul reçu : {calc_expression}")
 
         # Evaluation et envoi du résultat

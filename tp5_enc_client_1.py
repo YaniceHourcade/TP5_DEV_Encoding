@@ -33,7 +33,7 @@ encoded_msg = msg.encode('utf-8')
 
 header = len(encoded_msg).to_bytes(4, byteorder='big')
 
-fin = (b'<fin>').encode('utf-8')
+fin = '<fin>'.encode('utf-8')
 
 msg_envoi = header + encoded_msg + fin
 
