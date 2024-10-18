@@ -24,5 +24,18 @@ Received from client 5+5
 
 🌞 tp5_enc_client_2.py
 
+```
+[yanice@localhost TP5_DEV_Encoding]$ python tp5_enc_client_2.py
+Calcul à envoyer: 5+5
+b'calcule envoyer : \x00\x00\x00\x05\x00\x00\x00\x00\x05'
+résultat :10
+```
+
 🌞 tp5_enc_server_2.py
+
+```
+[yanice@localhost TP5_DEV_Encoding]$ python tp5_enc_server_2.py
+En attente de connexion...
+calcul du client: 5 + 5
+```
 
