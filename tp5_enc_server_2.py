@@ -44,6 +44,7 @@ while True:
             break
         
         expression = convert_data(data)
+        print("calcul du client: " + expression)
         
         # Evaluation et envoi du résultat
         res  = eval(data.decode())
