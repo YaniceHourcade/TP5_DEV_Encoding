@@ -42,8 +42,8 @@ while True:
             break
         
         # Vérification si le message se termine par une séquence de fin spécifique
-        if not data.endswith(b'<clafin>'):
-            print("Séquence de fin manquante.")
+        if not data.endswith(b'<fin>'):
+            print("Séquence de fin manquante ou incorrecte.")
             break
         
         calc_expression = data[:-len('<clafin>')].decode().strip()
