@@ -21,21 +21,9 @@ while True:
 
         print(f"Lecture des {msg_len} prochains octets")
         
-        chunks = []
-
-        bytes_received = 0
-        while bytes_received < msg_len:
-            chunk = conn.recv(min(msg_len - bytes_received, 1024))
-        if not chunk:
-            raise RuntimeError('Invalid chunk received bro')
-
-        chunks.append(chunk)
-
-        bytes_received += len(chunk)
-
-        message_received = b"".join(chunks).decode('utf-8')
-        end_check = message_received[-(len(END_MESSAGE)):]
-        message = message_received[:len(message_received)-len(END_MESSAGE)]
+        message = conn.recv(msg_len).decode('utf-8')
+        
+        end_check = conn.recv(len(END_MESSAGE)).decode('utf-8')
 
         if end_check == END_MESSAGE:
             print(f"Received from client {message}")
@@ -43,7 +31,7 @@ while True:
             print("Aucun séquence de fin trouvée")
     
         # Evaluation et envoi du résultat
-        res = eval(message_received)
+        res = eval(message)
         conn.send(str(res).encode())
          
     except socket.error:
