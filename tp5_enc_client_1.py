@@ -31,7 +31,9 @@ encoded_msg = msg.encode('utf-8')
 
 header = len(encoded_msg).to_bytes(4, byteorder='big')
 
-msg_envoi = header + encoded_msg
+fin = '<clafin>'.encode('utf-8')
+
+msg_envoi = header + encoded_msg + fin
 
 # On envoie
 s.send(msg_envoi)
