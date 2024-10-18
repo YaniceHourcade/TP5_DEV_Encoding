@@ -1,5 +1,6 @@
 import socket
 import struct
+import re
 
 def recv_all(sock, size):
     data = b''
@@ -45,18 +46,11 @@ while True:
             print("Séquence de fin manquante.")
             break
         
-        print(f"Données reçues du client : {data.decode()}")
-
-        conn.send("Hello".encode())
-
-        # On reçoit le calcul du client
-        data = recv_all(conn,  message_length)
-        
-        calc_expression = data.decode().strip()
+        calc_expression = data[:-len('<clafin>')].decode().strip()
         print(f"Calcul reçu : {calc_expression}")
 
         # Evaluation et envoi du résultat
-        res = eval(data)
+        res = eval(calc_expression)
         conn.send(str(res).encode())
          
     except socket.error:
