@@ -54,5 +54,5 @@ s.send(payload)
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
-print(s_data.decode())
+print("résultat :" + s_data.decode())
 s.close()
