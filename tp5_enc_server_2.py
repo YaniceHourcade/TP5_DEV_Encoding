@@ -40,7 +40,6 @@ while True:
         data = conn.recv(1024)
 
         if not data:
-            print("Connexion fermée par le client.")
             break
         
         expression = convert_data(data)
