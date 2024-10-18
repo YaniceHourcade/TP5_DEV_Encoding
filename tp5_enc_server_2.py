@@ -47,7 +47,7 @@ while True:
         print("calcul du client: " + expression)
         
         # Evaluation et envoi du résultat
-        res  = eval(data)
+        res  = eval(expression)
         conn.send(str(res).encode())
          
     except socket.error:
