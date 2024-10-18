@@ -23,7 +23,6 @@ while True:
         message = conn.recv(msg_len).decode('utf-8')
         
         end_check = conn.recv(len(END_MESSAGE)).decode('utf-8')
-        print(end_check)
 
         if end_check == END_MESSAGE:
             print(f"Received from client {message}")
